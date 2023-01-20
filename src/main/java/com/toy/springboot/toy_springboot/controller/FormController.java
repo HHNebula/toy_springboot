@@ -24,13 +24,8 @@ public class FormController {
     FormService formService;
 
     @GetMapping(value = "")
-    public Object root(HttpSession session) {
-        Map<String, Object> check = (Map<String, Object>) session.getAttribute("userInfo");
-        if (check != null) {
-            return "redirect:/form/survey";
-        } else {
-            return "redirect:/form/login";
-        }
+    public String root() {
+        return "redirect:/form/survey";
     }
 
     @GetMapping(value = "/login")
@@ -42,15 +37,14 @@ public class FormController {
     @PostMapping(value = "/login")
     public Object loginPost(@RequestParam Map<String, Object> params, ModelAndView modelAndView,
             HttpSession session) {
-        Object userInfo = formService.loginAttempt(params);
-        Map<String, Object> resultMap = (Map<String, Object>) userInfo;
         String muid;
+        Object userInfo = formService.loginAttempt(params);
         try {
+            Map<String, Object> resultMap = (Map<String, Object>) userInfo;
             muid = (String) resultMap.get("MUID");
         } catch (Exception e) {
             muid = null;
         }
-
         if (muid == null) {
             modelAndView.addObject("msg", "로그인 정보가 불일치합니다.");
             modelAndView.setViewName("form/login");

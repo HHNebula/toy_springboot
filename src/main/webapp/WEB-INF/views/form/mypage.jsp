@@ -29,7 +29,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-3 my-3">
                     <label class="form-label" for="pw">Password</label>
-                    <input class="form-control w-100" type="text" name="pw" id="pw" value="${userInfo.get("PW")}"required>
+                    <input class="form-control w-100" type="password" name="pw" id="pw" value="${userInfo.get("PW")}"required>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -44,7 +44,7 @@
                     <label class="form-label" for="cuid">관심 전기 차량</label>
                     <c:forEach items="${cars}" var="car" varStatus="loop">
                     <div>
-                        <input type="radio" name="cuid" value="${car.get("CUID")}" ${userInfo.get("CUID") == car.get("CUID") ? 'checked' :  '' }>
+                        <input type="radio" name="cuid" value="${car.get("CUID")}" ${userInfo.get("CUID") == car.get("CUID") ? 'checked' :  '' } required>
                         <label class="form-label" for="cuid">${car.get("BRAND")} ${car.get("MODEL")}</label>
                     </div>
                     </c:forEach>
@@ -57,14 +57,14 @@
             </div>
         </form>
         <c:if test="${userInfo != null}">
-        <form action="/form/delete" method="post" id="dropForm">
-            <input type="hidden" name="muid" id="muid" value="${userInfo.get("MUID")}">
-            <div class="row d-flex justify-content-center">
-                <div class="col-3 my-3">
-                    <div class="btn btn-danger w-100" id="dropButton">탈퇴하기</div>
+            <form action="/form/delete" method="post" id="dropForm">
+                <input type="hidden" name="muid" id="muid" value="${userInfo.get("MUID")}">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-3 my-3">
+                        <div class="btn btn-danger w-100" id="dropButton">탈퇴하기</div>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </c:if>
     </div>
     <script type="text/javascript" src = "../../../resource/js/mypage.js"></script>
