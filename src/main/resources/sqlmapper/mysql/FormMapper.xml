@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Form">
+
+    <!-- Form.loginAttempt -->
+    <select id="loginAttempt" parameterType="Map" resultType="Map">
+        SELECT * FROM MEMBERS
+        WHERE ID = #{id} AND PW = #{pw} AND ALLOW_LOGIN = 'Y'
+    </select>
+
+    <!-- Form.getCarList -->
+    <select id="getCarList" parameterType="Map" resultType="Map">
+        SELECT * FROM CARS
+    </select>
+
+    <!-- Form.updateUserInfo -->
+    <update id="updateUserInfo" parameterType="Map">
+        UPDATE MEMBERS
+        SET ID = #{id},
+            PW = #{pw},
+            NICK_NAME = #{nickName},
+            CUID = #{cuid}
+        WHERE MUID = #{muid}
+    </update>
+
+    <!-- Form.dropUser -->
+    <delete id="dropUser" parameterType="Map">
+        DELETE FROM MEMBERS
+        WHERE MUID = #{muid}
+    </delete>
+
+    <!-- Form.updateUserInfo -->
+    <insert id="insertUser" parameterType="Map">
+        INSERT INTO MEMBERS
+        VALUE (#{muid}, #{id}, #{pw}, #{nickName}, 'Y', #{cuid})
+    </insert>
+
+</mapper>
