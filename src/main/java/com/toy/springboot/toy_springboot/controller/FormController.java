@@ -94,48 +94,62 @@ public class FormController {
 
     @GetMapping("/mypage")
     public ModelAndView mypage(ModelAndView modelAndView) {
+
         Object cars = formService.getCarList();
         modelAndView.addObject("cars", cars);
+
         modelAndView.setViewName("form/mypage");
+
         return modelAndView;
     }
 
     @PostMapping("/mypage")
-    public ModelAndView update(@RequestParam Map<String, Object> params, ModelAndView modelAndView,
-            HttpSession session) {
+    public String update(@RequestParam Map<String, Object> params, HttpSession session) {
+
         formService.updateUserInfo(params);
+
         Map<String, Object> updateInfo = new HashMap<>();
         updateInfo.put("id", params.get("id"));
         updateInfo.put("pw", params.get("pw"));
+
         Object userInfo = formService.loginAttempt(updateInfo);
         session.setAttribute("userInfo", userInfo);
-        Object cars = formService.getCarList();
-        modelAndView.addObject("cars", cars);
-        modelAndView.setViewName("form/mypage");
-        return modelAndView;
+
+        return "redirect:/form/survey";
+
     }
 
     @PostMapping("/delete")
     public String drop(@RequestParam Map<String, Object> params, HttpSession session) {
+
         formService.dropUser(params);
+
         session.invalidate();
+
         return "redirect:/form/login";
+
     }
 
     @GetMapping("/signup")
     public ModelAndView signupGet(ModelAndView modelAndView) {
+
         Object cars = formService.getCarList();
         modelAndView.addObject("cars", cars);
+
         modelAndView.setViewName("form/mypage");
+
         return modelAndView;
     }
 
     @PostMapping("/signup")
     public String signupPost(@RequestParam Map<String, Object> params) {
+
         Object muid = UUID.randomUUID().toString();
         params.put("muid", muid);
         formService.insertUser(params);
+
         return "redirect:/form/login";
+
     }
 
 }

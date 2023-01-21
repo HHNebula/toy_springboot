@@ -189,7 +189,7 @@
           "active": false,
           "left": 406.6666,
           "top": 424.6668,
-          "zIndex": 58,
+          "zIndex": 2,
           "widthName": 61.8583984375,
           "widthComment": 60
         },
@@ -249,7 +249,7 @@
           {
             "name": "ORDERS",
             "comment": "순서",
-            "dataType": "VARCHAR(255)",
+            "dataType": "INTEGER",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -264,7 +264,7 @@
               "pfk": false,
               "widthName": 60,
               "widthComment": 60,
-              "widthDataType": 89.29296875,
+              "widthDataType": 60,
               "widthDefault": 60
             },
             "id": "204bf419-3fc3-4766-9f62-1ab4d262e6a3"
@@ -272,9 +272,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 400.8886,
+          "left": 402.1386,
           "top": 220.8889,
-          "zIndex": 74,
+          "zIndex": 16,
           "widthName": 72.47802734375,
           "widthComment": 60
         },
@@ -359,7 +359,7 @@
           "active": false,
           "left": 398.6667,
           "top": 49.2225,
-          "zIndex": 56,
+          "zIndex": 1,
           "widthName": 61.66796875,
           "widthComment": 60
         },
@@ -444,7 +444,7 @@
           "active": false,
           "left": 1020.9166,
           "top": 364.0277,
-          "zIndex": 78,
+          "zIndex": 5,
           "widthName": 97.5703125,
           "widthComment": 71.5703125
         },
@@ -529,7 +529,7 @@
           "active": false,
           "left": 1031.0834,
           "top": 571.3611,
-          "zIndex": 77,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60
         },
@@ -614,7 +614,7 @@
           "active": false,
           "left": 1015.6945,
           "top": 179.9446,
-          "zIndex": 80,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60
         },
@@ -653,7 +653,7 @@
           "active": false,
           "left": 1009.5,
           "top": 43.75,
-          "zIndex": 81,
+          "zIndex": 7,
           "widthName": 66.79052734375,
           "widthComment": 89.140625
         },
@@ -677,7 +677,7 @@
           "columnIds": [
             "ba318660-7c29-49ab-b424-5ead7572a551"
           ],
-          "x": 807.17131484375,
+          "x": 808.42131484375,
           "y": 253.5139,
           "direction": "right"
         },
@@ -781,7 +781,7 @@
           "columnIds": [
             "ba318660-7c29-49ab-b424-5ead7572a551"
           ],
-          "x": 807.17131484375,
+          "x": 808.42131484375,
           "y": 318.76390000000004,
           "direction": "right"
         },
