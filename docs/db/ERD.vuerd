@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -134,
-    "scrollLeft": -280,
+    "scrollTop": -171,
+    "scrollLeft": -148,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -249,7 +249,7 @@
           {
             "name": "ORDERS",
             "comment": "순서",
-            "dataType": "INTEGER",
+            "dataType": "VARCHAR(255)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -264,7 +264,7 @@
               "pfk": false,
               "widthName": 60,
               "widthComment": 60,
-              "widthDataType": 60,
+              "widthDataType": 89.29296875,
               "widthDefault": 60
             },
             "id": "204bf419-3fc3-4766-9f62-1ab4d262e6a3"
@@ -359,7 +359,7 @@
           "active": false,
           "left": 398.6667,
           "top": 49.2225,
-          "zIndex": 1,
+          "zIndex": 13,
           "widthName": 61.66796875,
           "widthComment": 60
         },
@@ -442,9 +442,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1020.9166,
-          "top": 364.0277,
-          "zIndex": 5,
+          "left": 1007.1666,
+          "top": 116.5277,
+          "zIndex": 9,
           "widthName": 97.5703125,
           "widthComment": 71.5703125
         },
@@ -527,138 +527,14 @@
         ],
         "ui": {
           "active": false,
-          "left": 1031.0834,
-          "top": 571.3611,
-          "zIndex": 4,
+          "left": 962.3334,
+          "top": 386.3611,
+          "zIndex": 10,
           "widthName": 60,
           "widthComment": 60
         },
         "visible": true,
         "id": "8beca150-51ea-4060-80fc-9b31c826bca1"
-      },
-      {
-        "name": "ADMINS",
-        "comment": "관리자들",
-        "columns": [
-          {
-            "name": "ADMINUID",
-            "comment": "유니크 아이디",
-            "dataType": "VARCHAR(255)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": true,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": true,
-              "fk": false,
-              "pfk": false,
-              "widthName": 67.228515625,
-              "widthComment": 84.5703125,
-              "widthDataType": 89.29296875,
-              "widthDefault": 60
-            },
-            "id": "d908fee5-cdf0-4315-b2de-964c779ea405"
-          },
-          {
-            "name": "ID",
-            "comment": "아이디",
-            "dataType": "VARCHAR(255)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 89.29296875,
-              "widthDefault": 60
-            },
-            "id": "d4144976-fc2c-401f-b53b-3006960979c7"
-          },
-          {
-            "name": "PW",
-            "comment": "비밀번호",
-            "dataType": "VARCHAR(255)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 89.29296875,
-              "widthDefault": 60
-            },
-            "id": "410ac443-1499-4bd7-930b-eab73081e7fa"
-          }
-        ],
-        "ui": {
-          "active": false,
-          "left": 1015.6945,
-          "top": 179.9446,
-          "zIndex": 6,
-          "widthName": 60,
-          "widthComment": 60
-        },
-        "visible": true,
-        "id": "f8cfc44c-57a7-4cf4-aa77-52462cd399a7"
-      },
-      {
-        "name": "CRITERION",
-        "comment": "차량 선택 기준",
-        "columns": [
-          {
-            "name": "QUID",
-            "comment": "유니크 아이디",
-            "dataType": "VARCHAR(255)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 84.5703125,
-              "widthDataType": 89.29296875,
-              "widthDefault": 60
-            },
-            "id": "930d5087-a624-4ad5-83d5-b5e4af724a28"
-          }
-        ],
-        "ui": {
-          "active": false,
-          "left": 1009.5,
-          "top": 43.75,
-          "zIndex": 7,
-          "widthName": 66.79052734375,
-          "widthComment": 89.140625
-        },
-        "visible": true,
-        "id": "0ee27696-bd52-487d-8e0a-367a03eaf099"
       }
     ],
     "indexes": []
@@ -678,7 +554,7 @@
             "ba318660-7c29-49ab-b424-5ead7572a551"
           ],
           "x": 808.42131484375,
-          "y": 253.5139,
+          "y": 286.13890000000004,
           "direction": "right"
         },
         "end": {
@@ -686,8 +562,8 @@
           "columnIds": [
             "fa0a2030-fb3f-4ca2-894e-f7390753dc41"
           ],
-          "x": 1020.9166,
-          "y": 396.6527,
+          "x": 1007.1666,
+          "y": 214.40269999999998,
           "direction": "left"
         },
         "constraintName": "fk_questions_to_answer_by_question",
@@ -712,8 +588,8 @@
           "columnIds": [
             "6d03d820-0357-4e0d-b869-1ca63f8a2a5c"
           ],
-          "x": 1020.9166,
-          "y": 461.9027,
+          "x": 1007.1666,
+          "y": 149.15269999999998,
           "direction": "left"
         },
         "constraintName": "fk_answers_to_answer_by_question",
@@ -729,8 +605,8 @@
           "columnIds": [
             "b61542dc-73e5-4f14-a52e-a70cf45d9cd2"
           ],
-          "x": 1231.515040625,
-          "y": 571.3611,
+          "x": 1162.765040625,
+          "y": 386.3611,
           "direction": "top"
         },
         "end": {
@@ -738,8 +614,8 @@
           "columnIds": [
             "f3bda5b2-b37d-48e4-9146-c30b8214eca6"
           ],
-          "x": 1221.348240625,
-          "y": 494.5277,
+          "x": 1207.598240625,
+          "y": 247.02769999999998,
           "direction": "bottom"
         },
         "constraintName": "fk_cars_to_answer_by_question",
@@ -755,8 +631,8 @@
           "columnIds": [
             "b61542dc-73e5-4f14-a52e-a70cf45d9cd2"
           ],
-          "x": 1031.0834,
-          "y": 636.6111,
+          "x": 962.3334,
+          "y": 451.6111,
           "direction": "left"
         },
         "end": {
@@ -771,32 +647,6 @@
         "constraintName": "fk_cars_to_members",
         "visible": true,
         "id": "50e71d2f-b3d5-4aa9-8217-dad983095218"
-      },
-      {
-        "identification": false,
-        "relationshipType": "OneN",
-        "startRelationshipType": "Dash",
-        "start": {
-          "tableId": "b1fa994d-2b24-4765-84b0-06e256900b36",
-          "columnIds": [
-            "ba318660-7c29-49ab-b424-5ead7572a551"
-          ],
-          "x": 808.42131484375,
-          "y": 318.76390000000004,
-          "direction": "right"
-        },
-        "end": {
-          "tableId": "0ee27696-bd52-487d-8e0a-367a03eaf099",
-          "columnIds": [
-            "930d5087-a624-4ad5-83d5-b5e4af724a28"
-          ],
-          "x": 1009.5,
-          "y": 88.5,
-          "direction": "left"
-        },
-        "constraintName": "fk_questions_to_criterion",
-        "visible": true,
-        "id": "dba7d509-da65-4383-a818-46df95f02646"
       }
     ]
   }
