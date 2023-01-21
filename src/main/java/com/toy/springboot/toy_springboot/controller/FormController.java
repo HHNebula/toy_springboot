@@ -25,27 +25,27 @@ public class FormController {
 
     @GetMapping(value = "")
     public String root() {
+
         return "redirect:/form/survey";
+
     }
 
     @GetMapping(value = "/login")
     public ModelAndView loginGet(ModelAndView modelAndView) {
+
         modelAndView.setViewName("form/login");
+
         return modelAndView;
+
     }
 
     @PostMapping(value = "/login")
     public Object loginPost(@RequestParam Map<String, Object> params, ModelAndView modelAndView,
             HttpSession session) {
-        String muid;
+
         Object userInfo = formService.loginAttempt(params);
-        try {
-            Map<String, Object> resultMap = (Map<String, Object>) userInfo;
-            muid = (String) resultMap.get("MUID");
-        } catch (Exception e) {
-            muid = null;
-        }
-        if (muid == null) {
+
+        if (userInfo == null) {
             modelAndView.addObject("msg", "로그인 정보가 불일치합니다.");
             modelAndView.setViewName("form/login");
             return modelAndView;
@@ -53,22 +53,47 @@ public class FormController {
             session.setAttribute("userInfo", userInfo);
             return "redirect:/form/survey";
         }
+
     }
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
+
         session.invalidate();
+
         return "redirect:/form/login";
+
     }
 
     @GetMapping("/survey")
-    public ModelAndView survuey(ModelAndView modelAndView) {
+    public ModelAndView survueyGet(ModelAndView modelAndView, HttpSession session) {
+
+        Object questionList = formService.getQuestionList();
+        modelAndView.addObject("questionList", questionList);
+
+        Object carInfo = formService.getCarInfo(session.getAttribute("userInfo"));
+        modelAndView.addObject("carInfo", carInfo);
+
+        Object answerList = formService.getAnswerList();
+        modelAndView.addObject("answerList", answerList);
+
         modelAndView.setViewName("form/survey");
+
         return modelAndView;
+
+    }
+
+    @PostMapping("/survey")
+    public String survueyPost(@RequestParam Map<String, Object> params) {
+
+        formService.insertSurvey(params);
+
+        return "redirect:/form/survey";
+
     }
 
     @GetMapping("/mypage")
-    public ModelAndView mypage(ModelAndView modelAndView, HttpSession session) {
+    public ModelAndView mypage(ModelAndView modelAndView) {
         Object cars = formService.getCarList();
         modelAndView.addObject("cars", cars);
         modelAndView.setViewName("form/mypage");
@@ -91,8 +116,7 @@ public class FormController {
     }
 
     @PostMapping("/delete")
-    public String drop(@RequestParam Map<String, Object> params, ModelAndView modelAndView,
-            HttpSession session) {
+    public String drop(@RequestParam Map<String, Object> params, HttpSession session) {
         formService.dropUser(params);
         session.invalidate();
         return "redirect:/form/login";
@@ -107,11 +131,10 @@ public class FormController {
     }
 
     @PostMapping("/signup")
-    public String signupPost(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+    public String signupPost(@RequestParam Map<String, Object> params) {
         Object muid = UUID.randomUUID().toString();
         params.put("muid", muid);
         formService.insertUser(params);
-
         return "redirect:/form/login";
     }
 

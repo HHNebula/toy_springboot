@@ -19,7 +19,9 @@
     <div class="container">
         <div class="fs-1 text-center mt-5 mb-3">${userInfo == null ? 'Sign Up To Survey' : 'My Page'}</div>
         <form action="/form/${userInfo == null ? 'signup' : 'mypage'}" method="post" id="userForm">
+        <c:if test="${userInfo != null}">
             <input type="hidden" name="muid" id="muid" value="${userInfo.get("MUID")}">
+        </c:if>
             <div class="row d-flex justify-content-center">
                 <div class="col-3 my-3">
                     <label class="form-label" for="id">ID</label>
@@ -44,15 +46,20 @@
                     <label class="form-label" for="cuid">관심 전기 차량</label>
                     <c:forEach items="${cars}" var="car" varStatus="loop">
                     <div>
-                        <input type="radio" name="cuid" value="${car.get("CUID")}" ${userInfo.get("CUID") == car.get("CUID") ? 'checked' :  '' } required>
-                        <label class="form-label" for="cuid">${car.get("BRAND")} ${car.get("MODEL")}</label>
+                        <input class="form-check-input" type="radio" id="${car.get("CUID")}" name="cuid" value="${car.get("CUID")}" ${userInfo.get("CUID") == car.get("CUID") ? 'checked' :  '' } required>
+                        <label class="form-check-label" for="${car.get("CUID")}">${car.get("BRAND")} ${car.get("MODEL")}</label>
                     </div>
                     </c:forEach>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-3 my-3">
-                    <button class="btn btn-dark w-100" type="submit" id="${userInfo == null ? 'insertButton' : 'updateButton'}">${userInfo == null ? '가입하기' : '수정하기'}</button>
+                <c:if test="${userInfo == null}">
+                    <button class="btn btn-dark w-100" type="submit" id="insertButton">가입하기</button>
+                </c:if>
+                <c:if test="${userInfo != null}">
+                    <button class="btn btn-dark w-100" type="submit" id="updateButton">수정하기</button>
+                </c:if>
                 </div>
             </div>
         </form>

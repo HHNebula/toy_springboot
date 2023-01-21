@@ -22,6 +22,11 @@ public class FormDao {
         return result;
     }
 
+    public Object getCarInfo(String sqlMapId, Object dataMap) {
+        Object result = sqlSessionTemplate.selectOne(sqlMapId, dataMap);
+        return result;
+    }
+
     public Object updateUserInfo(String sqlMapId, Object dataMap) {
         Object result = sqlSessionTemplate.update(sqlMapId, dataMap);
         return result;
@@ -36,4 +41,20 @@ public class FormDao {
         Object result = sqlSessionTemplate.insert(sqlMapId, dataMap);
         return result;
     }
+
+    public Object getQuestionList(String sqlMapId) {
+        Object result = sqlSessionTemplate.selectList(sqlMapId);
+        return result;
+    }
+
+    public Object getAnswerList(String sqlMapId) {
+        Object result = sqlSessionTemplate.selectList(sqlMapId);
+        return result;
+    }
+
+    public Object insertSurvey(String sqlMapId, Object dataMap) {
+        Object result = sqlSessionTemplate.insert(sqlMapId, dataMap);
+        return result;
+    }
+
 }

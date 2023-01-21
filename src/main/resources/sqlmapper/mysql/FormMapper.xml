@@ -30,10 +30,44 @@
         WHERE MUID = #{muid}
     </delete>
 
-    <!-- Form.updateUserInfo -->
+    <!-- Form.insertUser -->
     <insert id="insertUser" parameterType="Map">
         INSERT INTO MEMBERS
         VALUE (#{muid}, #{id}, #{pw}, #{nickName}, 'Y', #{cuid})
+    </insert>
+
+    <!-- Form.getQuestionList -->
+    <select id="getQuestionList" parameterType="Map" resultType="Map">
+        SELECT * FROM QUESTIONS
+    </select>
+
+    <!-- Form.getCarInfo -->
+    <select id="getCarInfo" parameterType="Map" resultType="Map">
+        SELECT * FROM CARS
+        WHERE CUID = #{CUID}
+    </select>
+
+    <!-- Form.getAnswerList -->
+    <select id="getAnswerList" parameterType="Map" resultType="Map">
+        SELECT * FROM ANSWERS
+    </select>
+
+    <!-- Form.insertSurvey -->
+    <insert id="insertSurvey" parameterType="Map">
+        INSERT INTO SURVEY_STATUS VALUES
+        ('Q1', #{Q1}, #{cuid}),
+        ('Q2', #{Q2}, #{cuid}),
+        ('Q3', #{Q3}, #{cuid}),
+        ('Q4', #{Q4}, #{cuid}),
+        ('Q5', #{Q5}, #{cuid}),
+        ('Q6', #{Q6}, #{cuid}),
+        ('Q7', #{Q7}, #{cuid}),
+        ('Q8', #{Q8}, #{cuid}),
+        ('Q9', #{Q9}, #{cuid}),
+        ('Q10', #{Q10}, #{cuid}),
+        ('Q11', #{Q11}, #{cuid}),
+        ('Q12', #{Q12}, #{cuid}),
+        ('Q13', #{Q13}, #{cuid})
     </insert>
 
 </mapper>
