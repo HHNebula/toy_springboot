@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <div class="fs-1 text-center mt-5 mb-3">CRUD 연습</div>
-        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3 text-bg-dark">
@@ -25,6 +25,7 @@
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">Survey</h1>
                         <ul class="list-unstyled mt-3 mb-4">
+                            <li>로그인&아웃 / 회원 가입&수정&탈퇴</li>
                             <li>설문 등록</li>
                         </ul>
                         <a href="/form" type="button" class="w-100 btn btn-lg btn-outline-dark">Link</a>
@@ -39,23 +40,10 @@
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">Status</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>설문 조회</li>
+                            <li>관심 차량 현황</li>
+                            <li>차량별 설문 결과</li>
                         </ul>
                         <a href="/status" type="button" class="w-100 btn btn-lg btn-outline-dark">Link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
-                    <div class="card-header py-3 text-bg-dark">
-                        <h4 class="my-0 fw-normal">Admin</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">Member</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>회원 현황</li>
-                        </ul>
-                        <a href="/member" type="button" class="w-100 btn btn-lg btn-outline-dark">Link</a>
                     </div>
                 </div>
             </div>
