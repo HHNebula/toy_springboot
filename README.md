@@ -6,16 +6,9 @@
 2023-01-20 ~ 2023-01-21
 
 ### 📚 기술스텍
-<img src="https://img.shields.io/badge/Java-FFFFFF?style=flat&logo=OpenJDK&logoColor=black" />
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
+<img src="https://img.shields.io/badge/Java-FFFFFF?style=flat&logo=OpenJDK&logoColor=black" /><img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" /><img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" /><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
 <br>
-<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=Spring Boot&logoColor=white" />
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" />
-<img src="https://img.shields.io/badge/MyBatis-000000?style=flat&logo=MyBatis&logoColor=white" />
-<img src="https://img.shields.io/badge/Servlet-000000?style=flat&logo=Servlet&logoColor=white" />
-<img src="https://img.shields.io/badge/JSP-000000?style=flat&logo=JSP&logoColor=white" />
+<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=Spring Boot&logoColor=white" /><img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" /><img src="https://img.shields.io/badge/MyBatis-000000?style=flat&logo=MyBatis&logoColor=white" /><img src="https://img.shields.io/badge/Servlet-000000?style=flat&logo=Servlet&logoColor=white" /><img src="https://img.shields.io/badge/JSP-000000?style=flat&logo=JSP&logoColor=white" />
 
 ### ❓ 개발목적
 MVC 패턴 ( Client > Servlet > Service > DAO > DB ) 에 대해 이해한다.
