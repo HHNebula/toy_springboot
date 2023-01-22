@@ -1,3 +1,5 @@
+use toy_springboot;
+
 INSERT INTO CARS VALUES
 ('C1', '현대', 'IONIQ 6'),
 ('C2', '기아', 'EV6'),
