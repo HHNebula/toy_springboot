@@ -17,7 +17,7 @@ MVC 패턴 ( Client > Servlet > Service > DAO > DB ) 에 대해 이해한다.
 
 <hr>
 
-설문조사 Page 로그인 필터
+### 설문조사 Page 로그인 필터
 
 ```java
 @WebFilter(value = { "/form/*", "/form" })
@@ -47,4 +47,86 @@ public class FromFilter implements Filter {
     }
 
 }
+```
+
+### 로그인 실패 시 메세지 전달
+```java
+@PostMapping(value = "/login")
+public Object loginPost(@RequestParam Map<String, Object> params, ModelAndView modelAndView,
+        HttpSession session) {
+
+    Object userInfo = formService.loginAttempt(params);
+
+    if (userInfo == null) {
+        modelAndView.addObject("msg", "로그인 정보가 불일치합니다.");
+        modelAndView.setViewName("form/login");
+        return modelAndView;
+    } else {
+        session.setAttribute("userInfo", userInfo);
+        return "redirect:/form/survey";
+    }
+
+}
+```
+
+### View 재사용
+```java
+...
+<div class="fs-1 text-center mt-5 mb-3">${userInfo == null ? 'Sign Up To Survey' : 'My Page'}</div>
+<form action="/form/${userInfo == null ? 'signup' : 'mypage'}" method="post" id="userForm">
+<c:if test="${userInfo != null}">
+    <input type="hidden" name="muid" id="muid" value="${userInfo.get("MUID")}">
+</c:if>
+    <div class="row d-flex justify-content-center">
+        <div class="col-3 my-3">
+            <label class="form-label" for="id">ID</label>
+            <input class="form-control w-100" type="text" name="id" id="id" value="${userInfo.get("ID")}" required>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-3 my-3">
+            <label class="form-label" for="pw">Password</label>
+            <input class="form-control w-100" type="password" name="pw" id="pw" value="${userInfo.get("PW")}"required>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-3 my-3">
+            <label class="form-label" for="nickName">닉네임</label>
+            <input class="form-control w-100" type="text" name="nickName" id="nickName" value="${userInfo.get("NICK_NAME")}" required>
+        </div>
+    </div>
+    <input type="hidden" name="allowLogin" id="allowLogin" value="Y">
+    <div class="row d-flex justify-content-center">
+        <div class="col-3 my-3">
+            <label class="form-label" for="cuid">관심 전기 차량</label>
+            <c:forEach items="${cars}" var="car" varStatus="loop">
+            <div>
+                <input class="form-check-input" type="radio" id="${car.get("CUID")}" name="cuid" value="${car.get("CUID")}" ${userInfo.get("CUID") == car.get("CUID") ? 'checked' :  '' } required>
+                <label class="form-check-label" for="${car.get("CUID")}">${car.get("BRAND")} ${car.get("MODEL")}</label>
+            </div>
+            </c:forEach>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-3 my-3">
+        <c:if test="${userInfo == null}">
+            <button class="btn btn-dark w-100" type="submit" id="insertButton">가입하기</button>
+        </c:if>
+        <c:if test="${userInfo != null}">
+            <button class="btn btn-dark w-100" type="submit" id="updateButton">수정하기</button>
+        </c:if>
+        </div>
+    </div>
+</form>
+<c:if test="${userInfo != null}">
+    <form action="/form/delete" method="post" id="dropForm">
+        <input type="hidden" name="muid" id="muid" value="${userInfo.get("MUID")}">
+        <div class="row d-flex justify-content-center">
+            <div class="col-3 my-3">
+                <div class="btn btn-danger w-100" id="dropButton">탈퇴하기</div>
+            </div>
+        </div>
+    </form>
+</c:if>
+...
 ```
