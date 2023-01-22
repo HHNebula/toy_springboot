@@ -71,19 +71,29 @@ public Object loginPost(@RequestParam Map<String, Object> params, ModelAndView m
 
 ### View 재사용 (회원가입 및 정보수정)
 ```html
+
 ...
+
+<!-- 로그인 여부에 따라 페이지명을 다르게 출력 -->
 <div class="fs-1 text-center mt-5 mb-3">${userInfo == null ? 'Sign Up To Survey' : 'My Page'}</div>
+
+<!-- 로그인 여부에 따라 input:hidden 추가 및 form action 동작 -->
 <form action="/form/${userInfo == null ? 'signup' : 'mypage'}" method="post" id="userForm">
 <c:if test="${userInfo != null}">
     <input type="hidden" name="muid" id="muid" value="${userInfo.get("MUID")}">
 </c:if>
+
+    <!-- 로그인 여부에 따라 value 작성 -->
     <div class="row d-flex justify-content-center">
         <div class="col-3 my-3">
             <label class="form-label" for="id">ID</label>
             <input class="form-control w-100" type="text" name="id" id="id" value="${userInfo.get("ID")}" required>
         </div>
     </div>
+
     ...
+
+    <!-- 로그인 여부에 따라 버튼명 작성 -->
     <div class="row d-flex justify-content-center">
         <div class="col-3 my-3">
         <c:if test="${userInfo == null}">
@@ -95,6 +105,8 @@ public Object loginPost(@RequestParam Map<String, Object> params, ModelAndView m
         </div>
     </div>
 </form>
+
+<!-- 정보수정일 경우에만 탈퇴하기 버튼 노출 -->
 <c:if test="${userInfo != null}">
     <form action="/form/delete" method="post" id="dropForm">
         <input type="hidden" name="muid" id="muid" value="${userInfo.get("MUID")}">
@@ -106,4 +118,5 @@ public Object loginPost(@RequestParam Map<String, Object> params, ModelAndView m
     </form>
 </c:if>
 ...
+
 ```
