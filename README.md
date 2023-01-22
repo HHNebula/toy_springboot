@@ -16,3 +16,35 @@ MVC 패턴 ( Client > Servlet > Service > DAO > DB ) 에 대해 이해한다.
 <a href="https://velog.io/@hh_nebula/series/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%ED%95%99%EC%8A%B5%EB%85%B8%ED%8A%B8">웹 프로그래밍 학습 노트</a>
 
 <hr>
+
+설문조사 Page 로그인 필터
+
+```java
+@WebFilter(value = { "/form/*", "/form" })
+public class FromFilter implements Filter {
+
+    private static final String[] whitelist = { "/form/login", "/form/logout", "/form/signup" };
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        String requestURI = httpRequest.getRequestURI();
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        if (isLoginCheckPath(requestURI)) {
+            HttpSession session = httpRequest.getSession(false);
+            if (session == null || session.getAttribute("userInfo") == null) {
+                httpResponse.sendRedirect("/form/login");
+                return;
+            }
+        }
+        chain.doFilter(httpRequest, httpResponse);
+        return;
+    }
+
+    private boolean isLoginCheckPath(String requestURI) {
+        return !PatternMatchUtils.simpleMatch(whitelist, requestURI);
+    }
+
+}
+```
