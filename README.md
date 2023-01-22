@@ -69,8 +69,8 @@ public Object loginPost(@RequestParam Map<String, Object> params, ModelAndView m
 }
 ```
 
-### View 재사용
-```java
+### View 재사용 (회원가입 및 정보수정)
+```html
 ...
 <div class="fs-1 text-center mt-5 mb-3">${userInfo == null ? 'Sign Up To Survey' : 'My Page'}</div>
 <form action="/form/${userInfo == null ? 'signup' : 'mypage'}" method="post" id="userForm">
@@ -83,30 +83,7 @@ public Object loginPost(@RequestParam Map<String, Object> params, ModelAndView m
             <input class="form-control w-100" type="text" name="id" id="id" value="${userInfo.get("ID")}" required>
         </div>
     </div>
-    <div class="row d-flex justify-content-center">
-        <div class="col-3 my-3">
-            <label class="form-label" for="pw">Password</label>
-            <input class="form-control w-100" type="password" name="pw" id="pw" value="${userInfo.get("PW")}"required>
-        </div>
-    </div>
-    <div class="row d-flex justify-content-center">
-        <div class="col-3 my-3">
-            <label class="form-label" for="nickName">닉네임</label>
-            <input class="form-control w-100" type="text" name="nickName" id="nickName" value="${userInfo.get("NICK_NAME")}" required>
-        </div>
-    </div>
-    <input type="hidden" name="allowLogin" id="allowLogin" value="Y">
-    <div class="row d-flex justify-content-center">
-        <div class="col-3 my-3">
-            <label class="form-label" for="cuid">관심 전기 차량</label>
-            <c:forEach items="${cars}" var="car" varStatus="loop">
-            <div>
-                <input class="form-check-input" type="radio" id="${car.get("CUID")}" name="cuid" value="${car.get("CUID")}" ${userInfo.get("CUID") == car.get("CUID") ? 'checked' :  '' } required>
-                <label class="form-check-label" for="${car.get("CUID")}">${car.get("BRAND")} ${car.get("MODEL")}</label>
-            </div>
-            </c:forEach>
-        </div>
-    </div>
+    ...
     <div class="row d-flex justify-content-center">
         <div class="col-3 my-3">
         <c:if test="${userInfo == null}">
