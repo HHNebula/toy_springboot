@@ -56,7 +56,7 @@ public class FormController {
 
     }
 
-    @GetMapping("/logout")
+    @GetMapping(value = "/logout")
     public String logout(HttpSession session) {
 
         session.invalidate();
@@ -65,7 +65,7 @@ public class FormController {
 
     }
 
-    @GetMapping("/survey")
+    @GetMapping(value = "/survey")
     public ModelAndView survueyGet(ModelAndView modelAndView, HttpSession session) {
 
         Object questionList = formService.getQuestionList();
@@ -83,7 +83,7 @@ public class FormController {
 
     }
 
-    @PostMapping("/survey")
+    @PostMapping(value = "/survey")
     public String survueyPost(@RequestParam Map<String, Object> params) {
 
         formService.insertSurvey(params);
@@ -92,7 +92,7 @@ public class FormController {
 
     }
 
-    @GetMapping("/mypage")
+    @GetMapping(value = "/mypage")
     public ModelAndView mypage(ModelAndView modelAndView) {
 
         Object cars = formService.getCarList();
@@ -103,7 +103,7 @@ public class FormController {
         return modelAndView;
     }
 
-    @PostMapping("/mypage")
+    @PostMapping(value = "/mypage")
     public String update(@RequestParam Map<String, Object> params, HttpSession session) {
 
         formService.updateUserInfo(params);
@@ -119,7 +119,7 @@ public class FormController {
 
     }
 
-    @PostMapping("/delete")
+    @PostMapping(value = "/delete")
     public String drop(@RequestParam Map<String, Object> params, HttpSession session) {
 
         formService.dropUser(params);
@@ -130,7 +130,7 @@ public class FormController {
 
     }
 
-    @GetMapping("/signup")
+    @GetMapping(value = "/signup")
     public ModelAndView signupGet(ModelAndView modelAndView) {
 
         Object cars = formService.getCarList();
@@ -141,7 +141,7 @@ public class FormController {
         return modelAndView;
     }
 
-    @PostMapping("/signup")
+    @PostMapping(value = "/signup")
     public String signupPost(@RequestParam Map<String, Object> params) {
 
         Object muid = UUID.randomUUID().toString();
