@@ -19,7 +19,7 @@ MVC 패턴 ( Client > Servlet > Service > DAO > DB ) 에 대해 이해한다.
 
 ## View
 
-
+<a href="https://github.com/HHNebula/toy_springboot/blob/master/docs/img/main.png">Main</a>
 
 <hr>
 
