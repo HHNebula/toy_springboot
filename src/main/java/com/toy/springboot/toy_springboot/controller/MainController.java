@@ -16,13 +16,18 @@ public class MainController {
         if (principal instanceof UserDetails) {
             String username = ((UserDetails) principal).getUsername();
             String password = ((UserDetails) principal).getPassword();
-
             System.out.println("Username : " + username);
             System.out.println("Password : " + password);
-            System.out.println(((UserDetails) principal).getAuthorities());
+
+            System.out.println(((UserDetails) principal).hashCode());
             System.out.println(((UserDetails) principal).isAccountNonExpired());
+            System.out.println(((UserDetails) principal).isAccountNonExpired());
+            System.out.println(((UserDetails) principal).isAccountNonLocked());
             System.out.println(((UserDetails) principal).isCredentialsNonExpired());
             System.out.println(((UserDetails) principal).isEnabled());
+            System.out.println(((UserDetails) principal).toString());
+            System.out.println(((UserDetails) principal).getClass());
+            System.out.println(((UserDetails) principal).getAuthorities());
         } else {
             String username = principal.toString();
         }
